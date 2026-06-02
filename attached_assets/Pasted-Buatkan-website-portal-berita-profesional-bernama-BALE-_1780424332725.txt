@@ -1,0 +1,212 @@
+Buatkan website portal berita profesional bernama “BALE BELEQ NEWS” dengan desain modern seperti CNN Indonesia, Kompas, dan Detik, tetapi memiliki identitas budaya Sasak Lombok.
+
+Identitas:
+
+	•	Nama: BALE BELEQ NEWS
+	•	Slogan: Informasi • Budaya • Aspirasi
+	•	Warna utama: Hijau, Merah, Putih
+	•	Logo menggunakan Bale Beleq sebagai identitas utama
+	•	Fokus berita: Desa, Pemerintahan, Budaya Sasak, Aspirasi Warga, Pendidikan, UMKM, Sosial Kemasyarakatan
+
+Teknologi:
+
+	•	Next.js
+	•	Tailwind CSS
+	•	PostgreSQL
+	•	Prisma ORM
+	•	NextAuth Authentication
+	•	Responsive Mobile & Desktop
+
+Fitur Pengunjung:
+
+	1.	Homepage profesional
+	2.	Headline utama
+	3.	Breaking News
+	4.	Berita terbaru
+	5.	Kategori berita
+	6.	Pencarian berita
+	7.	Detail artikel
+	8.	Related Articles
+	9.	Share ke media sosial
+	10.	SEO Friendly
+	11.	Sitemap otomatis
+	12.	Dark Mode
+
+Fitur Admin:
+
+	1.	Login Admin
+	2.	Dashboard Statistik
+	3.	Manajemen Berita
+	4.	Manajemen Kategori
+	5.	Upload Gambar
+	6.	Draft Berita
+	7.	Publish Berita
+	8.	Edit Berita
+	9.	Hapus Berita
+	10.	Rich Text Editor
+	11.	Manajemen User
+
+Role User:
+
+	•	Super Admin
+	•	Editor
+	•	Wartawan
+
+Hak Akses:
+Super Admin:
+
+	•	Kelola semua data
+	•	Kelola user
+	•	Kelola website
+
+Editor:
+
+	•	Review berita
+	•	Approve berita
+	•	Publish berita
+
+Wartawan:
+
+	•	Menulis berita
+	•	Edit berita sendiri
+	•	Tidak bisa publish langsung
+
+Workflow:
+Wartawan membuat berita
+→ Status Draft
+→ Editor Review
+→ Approve
+→ Publish
+→ Tampil di website
+
+Database:
+Users
+Categories
+Articles
+Media
+Comments
+Settings
+
+Halaman Admin:
+
+	•	/admin/login
+	•	/admin/dashboard
+	•	/admin/articles
+	•	/admin/categories
+	•	/admin/media
+	•	/admin/users
+	•	/admin/settings
+
+Buatkan struktur folder proyek, schema database Prisma, API routes, halaman frontend, dashboard admin, dan contoh data dummy agar website bisa langsung dijalankan.
+Tambahkan sistem autentikasi dan manajemen pengguna profesional untuk website portal berita BALE BELEQ NEWS.
+
+Persyaratan:
+
+	1.	Saat website pertama kali dijalankan dan database masih kosong:
+	•	Tampilkan halaman Setup Wizard.
+	•	Hanya muncul jika belum ada akun Super Admin.
+	•	Setelah akun Super Admin dibuat, halaman setup otomatis dinonaktifkan permanen.
+	2.	Halaman Setup Wizard:
+	•	Nama Lengkap
+	•	Email
+	•	Password
+	•	Konfirmasi Password
+	•	Tombol “Buat Website”
+	3.	Setelah setup selesai:
+	•	User pertama otomatis menjadi SUPER_ADMIN (Owner).
+	•	Redirect ke Dashboard Admin.
+	4.	Sistem Login:
+URL:
+/admin/login
+Field:
+	•	Email
+	•	Password
+Fitur:
+	•	Remember Me
+	•	Forgot Password
+	•	Logout
+	•	Session Management
+	5.	Role System:
+SUPER_ADMIN
+	•	Kelola seluruh website
+	•	Kelola pengguna
+	•	Membuat Editor
+	•	Membuat Wartawan
+	•	Menghapus pengguna
+	•	Mengubah role pengguna
+	•	Mengakses pengaturan website
+EDITOR
+	•	Review berita
+	•	Approve berita
+	•	Publish berita
+	•	Edit semua artikel
+WARTAWAN
+	•	Menulis berita
+	•	Mengedit berita sendiri
+	•	Menyimpan draft
+	•	Tidak dapat publish
+	6.	Menu Dashboard:
+Dashboard
+Berita
+Kategori
+Media
+Pengguna
+Pengaturan
+Logout
+	7.	Halaman Pengguna:
+Tombol:
+	•	Tambah Pengguna
+Form:
+	•	Nama
+	•	Email
+	•	Password
+	•	Role
+	8.	Workflow Berita:
+Wartawan membuat berita
+↓
+Status = DRAFT
+Editor Review
+↓
+Status = PENDING_REVIEW
+Editor Approve
+↓
+Status = PUBLISHED
+Berita tampil di website publik
+	9.	Keamanan:
+	•	Password wajib di-hash menggunakan bcrypt
+	•	Middleware proteksi route admin
+	•	Role-based access control
+	•	CSRF protection
+	•	Rate limiting login
+	•	Audit log aktivitas pengguna
+	10.	Database Prisma:
+
+model User {
+id
+name
+email
+password
+role
+createdAt
+updatedAt
+}
+
+enum Role {
+SUPER_ADMIN
+EDITOR
+WARTAWAN
+}
+
+	11.	Buat seed data contoh:
+
+SUPER_ADMIN:
+Email: owner@balebeleqnews.com
+Password: Owner123!
+
+	12.	Jika sudah ada akun SUPER_ADMIN di database:
+	•	Halaman setup tidak boleh dapat diakses lagi.
+	•	Redirect ke halaman login.
+
+Gunakan Next.js App Router, Prisma ORM, PostgreSQL, NextAuth, Tailwind CSS, dan TypeScript.
+
+Buat seluruh kode siap deploy ke Vercel serta dashboard admin yang modern seperti CMS portal berita profesional.

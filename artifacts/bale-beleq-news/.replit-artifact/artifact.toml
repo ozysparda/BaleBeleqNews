@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "BALE BELEQ NEWS"
+version = "1.0.0"
+id = "artifacts/bale-beleq-news"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22194
+
+[services.development]
+run = "pnpm --filter @workspace/bale-beleq-news run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/bale-beleq-news", "run", "build" ]
+publicDir = "artifacts/bale-beleq-news/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22194"
+BASE_PATH = "/"
